@@ -24,24 +24,51 @@
     }
 
     .lech-trai {
-        margin-left: 30px;
+        margin-left: 45px;
+        font-size: 15px;
+    }
+
+    .tieude-1 {
+        margin-top: 150px;
+        margin-left: -20px;
+    }
+
+    .tieude-2 {
+        margin-top: 320px;
+        margin-left: -20px;
+    }
+
+    .icon-tieude {
         font-size: 20px;
     }
 
-    .tieude {
-        margin-top: 150px;
-    }
-    .icon-tieude{
-        font-size: 30px;
-    }
-    .icon-bg{
-        width: 50px;
-        height: 50px;
-        background-color: rgba(238, 36, 160, 0.849);
+    .icon-bg {
+        width: 40px;
+        height: 40px;
+        background-color: #e56e72;
         border-radius: 100px;
         position: absolute;
         margin-top: -40px;
-        margin-left: 153px;
+        margin-left: 140px;
+    }
+
+    .icon-bg-1 {
+
+        background-color: #7e30a5;
+    }
+
+    .icon-bg-2 {
+
+        background-color: #2783cf;
+    }
+
+    div.vertical-line {
+        width: 0px;
+        /* Use only border style */
+        height: 100%;
+        float: left;
+        border: 1px inset;
+        /* This is default border style for <hr> tag */
     }
 </style>
 
@@ -51,7 +78,7 @@
             <div class="col-2">
 
             </div>
-            <div class="col-8" style="background-color: rgba(204, 195, 195, 0.288);">
+            <div class="col-8" style="background-color: rgba(204, 195, 195, 0.288); height: 1050px; width: 855px;">
                 <div class="row">
                     <div class="col-2">
                         <div class="anh"
@@ -62,20 +89,58 @@
                                 src="./img/177844700_245821140627672_4669205086063577509_n.jpg" alt="anh">
                         </div>
 
-                        <div class="tieude">
-                            <span class="lech-trai" style="color: rgba(238, 36, 160, 0.849);font-weight: bold;">EDUCATION</span>
-                            <div class="icon-bg">
-                                
+                        <div class="tieude-1">
+                            <div class="lech-1">
+                                <span class="lech-trai"
+                                    style="color: #e56e72;font-weight: bold; margin-top: -30px; position: absolute;">EDUCATION</span>
+                                <div class="icon-bg">
+
+                                </div>
+                                <i class="fas fa-graduation-cap icon-tieude"
+                                    style="position: absolute; margin-top: -30px; margin-left: 147px; color: white;"></i>
+                                <hr width="3" size="100"
+                                    style="margin-left: 158px; color:#e56e72 ; position: absolute;">
                             </div>
-                            <i class="fas fa-graduation-cap icon-tieude"
-                                style="position: absolute; margin-top: -30px; margin-left: 160px; color: white;"></i>
+                        </div>
+                        <div class="tieude-2">
+                            <div class="lech-1">
+                                <span class="lech-trai"
+                                    style="color: #7e30a5;font-weight: bold; margin-top: -30px; position: absolute;">EXPERIENCE</span>
+                                <div class="batdaulam"
+                                    style="color: #7e30a5; margin-left: 25px;margin-top: -5px;position: absolute;">
+                                    <span class="gioithieu" style="font-size: 10px; ">August , 2019 Present</span>
+                                </div>
+                                <div class="icon-bg icon-bg-1">
+
+                                </div>
+                                <i class="fas fa-briefcase icon-tieude"
+                                    style="position: absolute; margin-top: -30px; margin-left: 150px; color: white;"></i>
+                                <hr width="3" size="280" style="margin-left: 158px; color:#7e30a5; position: absolute;">
+                            </div>
+                        </div>
+                        <div class="tieude-2">
+                            <div class="lech-2" style="margin-top: 680px;">
+                                <span class="lech-trai"
+                                    style="color: #2783cf;font-weight: bold; margin-top: -30px; position: absolute;">ACTIVITIES</span>
+                                <div class="batdaulam"
+                                    style="color: #2783cf; margin-left: 42px; position: absolute; margin-top: -5px;">
+                                    <span class="gioithieu" style="font-size: 10px;">Sep , 2019-2022</span>
+                                </div>
+                                <div class="icon-bg icon-bg-2">
+
+                                </div>
+                                <i class="fas fa-child icon-tieude"
+                                    style="position: absolute; margin-top: -30px; margin-left: 152px; color: white;"></i>
+                                <hr width="3" size="150"
+                                    style="margin-left: 158px; color:#2783cf ; position: absolute;">
+                            </div>
                             <!-- <span class="lech-trai" >EXPERIENCE</span><i class="fas fa-briefcase icon-tieude"></i>
                             <span class="lech-trai" >ACTIVITIES</span><i class="fas fa-child icon-tieude"></i> -->
                         </div>
                     </div>
-                    <div class="col-10" style="height: auto;">
+                    <div class="col-10" style=" margin-left: 15px; position: absolute; margin-left: 180px;">
                         <h1 style="margin-top: 60px; text-transform: uppercase; font-size: 20px;">Nguyễn Hải Đăng</h1>
-                        <p style="font-size: 15px; text-transform: uppercase;">Lập trình viên</p>
+                        <p style="font-size: 15px; text-transform: uppercase;">Programer</p>
                         <div class="row">
                             <div class="col-4">
                                 <div class="view1">
@@ -85,7 +150,7 @@
                                 </div>
                             </div>
                             <div class="col-4">
-                                <div class="view2" style="margin-left: -20px;">
+                                <div class="view2" style="margin-left: -250px;">
                                     <i class="far fa-calendar-alt icon"></i><span class="gioithieu">August , 11 /
                                         2001</span>
                                     <br>
@@ -94,7 +159,7 @@
                                 </div>
                             </div>
                             <div class="col-4">
-                                <div class="view3">
+                                <div class="view3" style="margin-left: -380px;">
                                     <i class="fas fa-map-marker-alt icon"></i><span class="gioithieu">Hà Nội , Việt
                                         Nam</span>
                                     <br>
@@ -108,6 +173,38 @@
                                 <br> the past two years at ARENA Academy. During that
                                 time I’ve been working in the design industry<br> as a hobby and also for living.
                             </p>
+                        </div>
+                        <div class="phai1">
+                            <h1 style="margin-top: 30px; text-transform: uppercase; font-size: 18px;">foreign trade
+                                university</h1>
+                            <p style="font-size: 12px;">Major Corporate Administration</p>
+                            <div class="batdaulam" style="color: rgba(238, 36, 160, 0.849);">
+                                <i class="far fa-calendar-alt"></i><span class="gioithieu">August , 2019 Present</span>
+                            </div>
+                        </div>
+                        <div class="phai2" style="margin-top: 80px;">
+                            <h1 style="margin-top: 30px; text-transform: uppercase; font-size: 18px;">CVPRO JSC</h1>
+                            <p style="font-size: 12px;">Programer</p>
+                            <div class="haizzz" style="font-size: 12px;">
+                                My best friend: <br> -In high school is Lan. Lan sits next to me in class, eats with me. <br> -At
+                                break time, and hangs out with me after school. <br>-She has beautiful and long hair; my
+                                mother always <br> -Says that I need to pay more attention to my hair so it can be pretty as
+                                hers. <br> -I am good at English while Lan is excellent in Math, <br> <br> -Therefore we can: <br> Help each
+                                other every time one of us has trouble in understanding those subjects. Besides our
+                                study, Lan is always <br> by my side whenever I feel upset. she can know my true feelings. We have been best friends since our young age, <br> and I will
+                                keep this friendship forever.
+                            </div>
+                        </div>
+                        <div class="phai3" style="margin-top: 100px;">
+                            <h1 style="margin-top: 30px; text-transform: uppercase; font-size: 18px;">CVPRO JSC</h1>
+                            <p style="font-size: 12px;">Programer</p>
+                            <div class="dd"  style="font-size: 12px;">
+                                My best friend: <br> -In high school is Lan. Lan sits next to me in class, eats with me. <br> -At
+                                break time, and hangs out with me after school. <br>-She has beautiful and long hair; my
+                                mother always <br> -Says that I need to pay more attention to my hair so it can be pretty as
+                                hers. <br>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
