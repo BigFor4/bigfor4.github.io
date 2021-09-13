@@ -293,9 +293,16 @@
                         </div>
                     </div>
                     <div class="col-10" style=" margin-left: 15px; position: absolute; margin-left: 180px;">
-                        <h1 style="margin-top: 60px; text-transform: uppercase; font-size: 20px;">Nguyễn Hải Đăng
-                            <iframe src="./hay.mp4" allow="autoplay" id="iframeAudio" style="position:absolute; margin-top: auto; border-radius: 100px; margin-top: -100px; margin-left: 140px;">
-                            </iframe> </h1>
+                        <h1 style="margin-top: 60px; text-transform: uppercase; font-size: 20px;">Nguyễn Hải Đăng<button class="btn btn-primary" style="margin-left: 5px; margin-top: -3px;" onclick="playVid()" type="button">Play Video</button>
+                            <iframe src="./hay.mp4" allow="autoplay" id="myVideo" style="position:absolute;display: none;">
+                            </iframe></h1>
+                            
+                            <script>var vid = document.getElementById("myVideo"); 
+
+                                function playVid() { 
+                                    vid.play(); 
+                                } 
+                                </script>
                         <p style="font-size: 15px; text-transform: uppercase;">Programer</p>
                         <div class="row">
                             <div class="col-4">
