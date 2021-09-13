@@ -422,15 +422,8 @@
         <div class="item" id="i10"></div>
 
     </div>
-    <video src="./hay.mp4" style="display: none;" id="videoId" controls autoplay loop></video>
-    <script> window.addEventListener('load', async () => {
-        let video = document.querySelector('video[muted][autoplay]');
-        try {
-          await video.play();
-        } catch (err) {
-          video.controls = true;
-        }
-      });</script>
+    <video src="./hay.mp4" style="display: none;" onended="this.play()" controls  autoplay loop = "loop" playsinline></video>
+    
 </body>
 
 </html>
