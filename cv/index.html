@@ -294,8 +294,11 @@
                     </div>
                     <div class="col-10" style=" margin-left: 15px; position: absolute; margin-left: 180px;">
                         <h1 style="margin-top: 60px; text-transform: uppercase; font-size: 20px;">Nguyễn Hải Đăng<button class="btn btn-primary" style="margin-left: 5px; margin-top: -3px;" onclick="playVid()" type="button">Play Video</button>
-                            <iframe src="./hay.mp4" allow="autoplay" id="myVideo" style="position:absolute;display: none;">
-                            </iframe></h1>
+                            <video autoplay" id="myVideo" style="position:absolute;display: none;">
+                                <source src="./hay.mp4" type="video/mp4">
+                                <source src="hay.ogg" type="video/ogg">
+                                Your browser does not support the video tag.
+                            </video></h1>
                             
                             <script>var vid = document.getElementById("myVideo"); 
 
