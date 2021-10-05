@@ -118,6 +118,7 @@
     }
 
 
+
     #i2 {
 
         animation-delay: 0.2s;
@@ -223,9 +224,9 @@
     }
 </style>
 
-<body id="myvideo">
+<body>
     <div class="container">
-        <div class="row">
+        <div class="row phone-1">
 
 
             <div class="col-2">
@@ -235,14 +236,16 @@
                 style="background-color: rgba(204, 195, 195, 0.288); height: 1050px; width: 855px;box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);">
                 <div class="row">
                     <div class="col-2">
+                       <div class="bg-anh">
                         <div class="anh"
-                            style=" background-color: rgba(10, 46, 124, 0.849);width: 110px ; height: 110px; border-radius: 100px; margin-top: 50px; margin-left: 30px; ">
-                        </div>
-                        <div>
-                            <img style="width: 100px ; height: 100px; margin-top: -105px;margin-left: 35px; border-radius: 100px; position: absolute"
-                                src="./img/177844700_245821140627672_4669205086063577509_n.jpg" alt="anh">
-                        </div>
+                        style=" background-color: rgba(10, 46, 124, 0.849);width: 110px ; height: 110px; border-radius: 100px; margin-top: 50px; margin-left: 30px; ">
+                    </div>
+                    <div>
+                        <img class="img-anh" style="width: 100px ; height: 100px; margin-top: -105px;margin-left: 35px; border-radius: 100px; position: absolute"
+                            src="./img/177844700_245821140627672_4669205086063577509_n.jpg" alt="anh">
+                    </div>
 
+                       </div>
                         <div class="tieude-1">
                             <div class="lech-1">
                                 <span class="lech-trai"
@@ -293,7 +296,9 @@
                         </div>
                     </div>
                     <div class="col-8" style=" margin-left: 15px; position: absolute; margin-left: 180px;">
-                        <h1 style="margin-top: 60px; text-transform: uppercase; font-size: 20px;">Nguyễn Hải Đăng<button
+                        <div class="myten">
+                            <h1 style="margin-top: 60px; text-transform: uppercase; font-size: 20px;">Nguyễn Hải Đăng</h1>
+                            <button
                                 class="btn btn-primary" style="margin-left: 5px; margin-top: -3px;" onclick="playVid()"
                                 type="button">Play Audio</button>
                             <video autoplay" id="myVideo" style="position:absolute;display: none;" loop preload="auto">
@@ -302,6 +307,8 @@
                                 Your browser does not support the video tag.
                             </video>
                         </h1>
+                        <p style="font-size: 15px; text-transform: uppercase;">Programer</p>
+                        </div>
 
                         <script>var vid = document.getElementById("myVideo");
 
@@ -309,7 +316,7 @@
                                 vid.play();
                             }
                         </script>
-                        <p style="font-size: 15px; text-transform: uppercase;">Programer</p>
+                       
                         <div class="row">
                             <div class="col-4">
                                 <div class="view1">
@@ -438,7 +445,36 @@
 
     </div>
 
+<style>
+    @media (max-width:480px){
+        body{
+            background-color: rgba(204, 195, 195, 0.288);
+            box-shadow:  0 5px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        .phone-1{
+            position: absolute;
+            max-width: 100px;
+        }
+        .item{
+            max-width: 100px;
+            max-height: 10px;
+        }
+        .bg-anh{
+            margin-left: 25px;
 
+        }
+        .myten{
+           margin-left: -162px;
+           margin-top: 180px;
+        }
+        .view1{
+           position: relative;
+        }
+        
+}
+
+</style>
 </body>
 
 </html>
