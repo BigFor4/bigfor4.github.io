@@ -483,199 +483,222 @@
 <body class="page-template-default page page-id-8 wpb-js-composer js-comp-ver-4.11 vc_responsive">
     <style>
         .hotline-phone-ring-wrap {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        z-index: 999999;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 999999;
         }
+
         .hotline-phone-ring {
-        position: relative;
-        visibility: visible;
-        background-color: transparent;
-        width: 110px;
-        height: 110px;
-        cursor: pointer;
-        z-index: 11;
-        -webkit-backface-visibility: hidden;
-        -webkit-transform: translateZ(0);
-        transition: visibility .5s;
-        left: 0;
-        bottom: 0;
-        display: block;
+            position: relative;
+            visibility: visible;
+            background-color: transparent;
+            width: 110px;
+            height: 110px;
+            cursor: pointer;
+            z-index: 11;
+            -webkit-backface-visibility: hidden;
+            -webkit-transform: translateZ(0);
+            transition: visibility .5s;
+            left: 0;
+            bottom: 0;
+            display: block;
         }
+
         .hotline-phone-ring-circle {
-        width: 85px;
-        height: 85px;
-        top: 10px;
-        left: 10px;
-        position: absolute;
-        background-color: transparent;
-        border-radius: 100%;
-        border: 2px solid #e60808;
-        -webkit-animation: phonering-alo-circle-anim 1.2s infinite ease-in-out;
-        animation: phonering-alo-circle-anim 1.2s infinite ease-in-out;
-        transition: all .5s;
-        -webkit-transform-origin: 50% 50%;
-        -ms-transform-origin: 50% 50%;
-        transform-origin: 50% 50%;
-        opacity: 0.5;
+            width: 85px;
+            height: 85px;
+            top: 10px;
+            left: 10px;
+            position: absolute;
+            background-color: transparent;
+            border-radius: 100%;
+            border: 2px solid #e60808;
+            -webkit-animation: phonering-alo-circle-anim 1.2s infinite ease-in-out;
+            animation: phonering-alo-circle-anim 1.2s infinite ease-in-out;
+            transition: all .5s;
+            -webkit-transform-origin: 50% 50%;
+            -ms-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+            opacity: 0.5;
         }
+
         .hotline-phone-ring-circle-fill {
-        width: 55px;
-        height: 55px;
-        top: 25px;
-        left: 25px;
-        position: absolute;
-        background-color: rgba(230, 8, 8, 0.7);
-        border-radius: 100%;
-        border: 2px solid transparent;
-        -webkit-animation: phonering-alo-circle-fill-anim 2.3s infinite ease-in-out;
-        animation: phonering-alo-circle-fill-anim 2.3s infinite ease-in-out;
-        transition: all .5s;
-        -webkit-transform-origin: 50% 50%;
-        -ms-transform-origin: 50% 50%;
-        transform-origin: 50% 50%;
+            width: 55px;
+            height: 55px;
+            top: 25px;
+            left: 25px;
+            position: absolute;
+            background-color: rgba(230, 8, 8, 0.7);
+            border-radius: 100%;
+            border: 2px solid transparent;
+            -webkit-animation: phonering-alo-circle-fill-anim 2.3s infinite ease-in-out;
+            animation: phonering-alo-circle-fill-anim 2.3s infinite ease-in-out;
+            transition: all .5s;
+            -webkit-transform-origin: 50% 50%;
+            -ms-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
         }
+
         .hotline-phone-ring-img-circle {
-        background-color: #e60808;
-        width: 33px;
-        height: 33px;
-        top: 37px;
-        left: 37px;
-        position: absolute;
-        background-size: 20px;
-        border-radius: 100%;
-        border: 2px solid transparent;
-        -webkit-animation: phonering-alo-circle-img-anim 1s infinite ease-in-out;
-        animation: phonering-alo-circle-img-anim 1s infinite ease-in-out;
-        -webkit-transform-origin: 50% 50%;
-        -ms-transform-origin: 50% 50%;
-        transform-origin: 50% 50%;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+            background-color: #e60808;
+            width: 33px;
+            height: 33px;
+            top: 37px;
+            left: 37px;
+            position: absolute;
+            background-size: 20px;
+            border-radius: 100%;
+            border: 2px solid transparent;
+            -webkit-animation: phonering-alo-circle-img-anim 1s infinite ease-in-out;
+            animation: phonering-alo-circle-img-anim 1s infinite ease-in-out;
+            -webkit-transform-origin: 50% 50%;
+            -ms-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+
         .hotline-phone-ring-img-circle .pps-btn-img {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
         }
+
         .hotline-phone-ring-img-circle .pps-btn-img img {
-        width: 20px;
-        height: 20px;
+            width: 20px;
+            height: 20px;
         }
+
         .hotline-bar {
-        position: absolute;
-        background: rgba(230, 8, 8, 0.75);
-        height: 40px;
-        width: 180px;
-        line-height: 40px;
-        border-radius: 3px;
-        padding: 0 10px;
-        background-size: 100%;
-        cursor: pointer;
-        transition: all 0.8s;
-        -webkit-transition: all 0.8s;
-        z-index: 9;
-        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.1);
-        border-radius: 50px !important;
-        /* width: 175px !important; */
-        left: 33px;
-        bottom: 37px;
+            position: absolute;
+            background: rgba(230, 8, 8, 0.75);
+            height: 40px;
+            width: 180px;
+            line-height: 40px;
+            border-radius: 3px;
+            padding: 0 10px;
+            background-size: 100%;
+            cursor: pointer;
+            transition: all 0.8s;
+            -webkit-transition: all 0.8s;
+            z-index: 9;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 50px !important;
+            /* width: 175px !important; */
+            left: 33px;
+            bottom: 37px;
         }
-        .hotline-bar > a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 15px;
-        font-weight: bold;
-        text-indent: 50px;
-        display: block;
-        letter-spacing: 1px;
-        line-height: 40px;
-        font-family: Arial;
+
+        .hotline-bar>a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: bold;
+            text-indent: 50px;
+            display: block;
+            letter-spacing: 1px;
+            line-height: 40px;
+            font-family: Arial;
         }
-        .hotline-bar > a:hover,
-        .hotline-bar > a:active {
-        color: #fff;
+
+        .hotline-bar>a:hover,
+        .hotline-bar>a:active {
+            color: #fff;
         }
+
         @-webkit-keyframes phonering-alo-circle-anim {
-        0% {
-        -webkit-transform: rotate(0) scale(0.5) skew(1deg);
-        -webkit-opacity: 0.1;
+            0% {
+                -webkit-transform: rotate(0) scale(0.5) skew(1deg);
+                -webkit-opacity: 0.1;
+            }
+
+            30% {
+                -webkit-transform: rotate(0) scale(0.7) skew(1deg);
+                -webkit-opacity: 0.5;
+            }
+
+            100% {
+                -webkit-transform: rotate(0) scale(1) skew(1deg);
+                -webkit-opacity: 0.1;
+            }
         }
-        30% {
-        -webkit-transform: rotate(0) scale(0.7) skew(1deg);
-        -webkit-opacity: 0.5;
-        }
-        100% {
-        -webkit-transform: rotate(0) scale(1) skew(1deg);
-        -webkit-opacity: 0.1;
-        }
-        }
+
         @-webkit-keyframes phonering-alo-circle-fill-anim {
-        0% {
-        -webkit-transform: rotate(0) scale(0.7) skew(1deg);
-        opacity: 0.6;
+            0% {
+                -webkit-transform: rotate(0) scale(0.7) skew(1deg);
+                opacity: 0.6;
+            }
+
+            50% {
+                -webkit-transform: rotate(0) scale(1) skew(1deg);
+                opacity: 0.6;
+            }
+
+            100% {
+                -webkit-transform: rotate(0) scale(0.7) skew(1deg);
+                opacity: 0.6;
+            }
         }
-        50% {
-        -webkit-transform: rotate(0) scale(1) skew(1deg);
-        opacity: 0.6;
-        }
-        100% {
-        -webkit-transform: rotate(0) scale(0.7) skew(1deg);
-        opacity: 0.6;
-        }
-        }
+
         @-webkit-keyframes phonering-alo-circle-img-anim {
-        0% {
-        -webkit-transform: rotate(0) scale(1) skew(1deg);
+            0% {
+                -webkit-transform: rotate(0) scale(1) skew(1deg);
+            }
+
+            10% {
+                -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
+            }
+
+            20% {
+                -webkit-transform: rotate(25deg) scale(1) skew(1deg);
+            }
+
+            30% {
+                -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
+            }
+
+            40% {
+                -webkit-transform: rotate(25deg) scale(1) skew(1deg);
+            }
+
+            50% {
+                -webkit-transform: rotate(0) scale(1) skew(1deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(0) scale(1) skew(1deg);
+            }
         }
-        10% {
-        -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
-        }
-        20% {
-        -webkit-transform: rotate(25deg) scale(1) skew(1deg);
-        }
-        30% {
-        -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
-        }
-        40% {
-        -webkit-transform: rotate(25deg) scale(1) skew(1deg);
-        }
-        50% {
-        -webkit-transform: rotate(0) scale(1) skew(1deg);
-        }
-        100% {
-        -webkit-transform: rotate(0) scale(1) skew(1deg);
-        }
-        }
+
         @media (max-width: 768px) {
-        .hotline-bar {
-        display: none;
-        }
+            .hotline-bar {
+                display: none;
+            }
         }
     </style>
-<div class="hotline-phone-ring-wrap">
-    <div class="hotline-phone-ring">
-        <div class="hotline-phone-ring-circle"></div>
-        <div class="hotline-phone-ring-circle-fill"></div>
-        <div class="hotline-phone-ring-img-circle">
-            <a href="tel:0869355921 " class="pps-btn-img">
-                <img src="https://nguyenhung.net/wp-content/uploads/2019/05/icon-call-nh.png" style="margin-bottom: 0px;" alt="Gọi điện thoại"
-                    width="50">
+    <div class="hotline-phone-ring-wrap">
+        <div class="hotline-phone-ring">
+            <div class="hotline-phone-ring-circle"></div>
+            <div class="hotline-phone-ring-circle-fill"></div>
+            <div class="hotline-phone-ring-img-circle">
+                <a href="tel:0869355921 " class="pps-btn-img">
+                    <img src="https://nguyenhung.net/wp-content/uploads/2019/05/icon-call-nh.png"
+                        style="margin-bottom: 0px;" alt="Gọi điện thoại" width="50">
+                </a>
+            </div>
+        </div>
+        <div class="hotline-bar">
+            <a href="tel:0869355921 ">
+                <span class="text-hotline">0869.355.921 </span>
             </a>
         </div>
     </div>
-    <div class="hotline-bar">
-        <a href="tel:0869355921 ">
-            <span class="text-hotline">0869.355.921 </span>
-        </a>
-    </div>
-</div>
     <header id="masthead" class="site-header border-bottom oceanic-header-layout-standard" role="banner">
 
         <div class="site-container">
@@ -711,13 +734,11 @@
                                 <li id="menu-item-22"
                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a
                                         href="./../danh-muc/tra-viet-thai/index.html">SẢN PHẨM</a></li>
-                                <li id="menu-item-21"
-                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21
+                                <li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21
+                                   "><a href="./../lienhe/index.html">LIÊN HỆ</a></li>
+                                <li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21
                                     current-menu-item page_item page-item-8 current_page_item"><a
-                                        href="./../lienhe/index.html" >LIÊN HỆ</a></li>
-                                        <li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21
-                                    "><a
-                                                href="./../hinhanh/index.html">Hình ảnh</a></li>
+                                        href="./../hinhanh/index.html">Hình ảnh</a></li>
 
                             </ul>
                         </div>
@@ -741,7 +762,7 @@
                 <main id="main" class="site-main" role="main">
 
 
-        
+
 
 
 
@@ -750,46 +771,161 @@
 
                         <div class="entry-content">
                             <div class="vc_row wpb_row vc_row-fluid">
-                                <div class="wpb_column vc_column_container vc_col-sm-12">
-          
-                                        <p class="MsoNormal" style="line-height: normal; text-align: center;"><b><span
-                                                    style="font-size: 10.0pt; font-family: 'Times New Roman','serif'; mso-fareast-font-family: 'Times New Roman';">Công
-                                                    ty cổ phần Trà Việt Thái</span></b><b></b></p>
-                                        <p class="MsoNormal" style="line-height: normal; text-align: center;"><b><span
-                                                    style="font-size: 10.0pt; font-family: 'Times New Roman','serif'; mso-fareast-font-family: 'Times New Roman';">Địa
-                                                    chỉ:</span></b><b><span
-                                                    style="font-size: 10.0pt; font-family: 'Times New Roman','serif'; mso-fareast-font-family: 'Times New Roman';">
-                                                    Tân Ấp 1, Phúc Thuận, thị xã Phổ Yên, tỉnh Thái Nguyên</span></b>
-                                        </p>
-                                        <p class="MsoNormal" style="line-height: normal; text-align: center;"><b><span
-                                                    style="font-size: 10.0pt; font-family: 'Times New Roman','serif'; mso-fareast-font-family: 'Times New Roman';">Tel:</span></b><b><span
-                                                    style="font-size: 10.0pt; font-family: 'Times New Roman','serif'; mso-fareast-font-family: 'Times New Roman';">
-                                                    (0280) 3 865 869   Mobile:0975 279 837</span></b></p>
-                                        <p class="MsoNormal" style="line-height: normal; text-align: center;"><b><span
-                                                    style="font-size: 10.0pt; font-family: 'Times New Roman','serif'; mso-fareast-font-family: 'Times New Roman';">Email:</span></b><b><span
-                                                    style="font-size: 10.0pt; font-family: 'Times New Roman','serif'; mso-fareast-font-family: 'Times New Roman';">
-                                                    thanhtruc.treviethai@gmail.com</span></b></p>
-                                        <p class="MsoNormal" style="line-height: normal; text-align: center;"><b><span
-                                                    style="font-size: 10.0pt; font-family: 'Times New Roman','serif'; mso-fareast-font-family: 'Times New Roman';">Nhà
-                                                    Phân Phối Chính Thức Tại Hà Nội</span></b></p>
-                                                     <p class="MsoNormal"
-                                                         style="line-height: normal; text-align: center;"><b><span
-                                                                 style="font-size: 10.0pt; font-family: 'Times New Roman','serif'; mso-fareast-font-family: 'Times New Roman';">Địa
-                                                                 chỉ:</span></b><b><span
-                                                                 style="font-size: 10.0pt; font-family: 'Times New Roman','serif'; mso-fareast-font-family: 'Times New Roman';">
-                                                                 Số nhà 212, Đường 72 cũ Lê Trọng Tấn ,Quận Hà Đông ,Thành Phố Hà Nội</span></b>
-                                                     </p>
-                                        <p class="MsoNormal" style="line-height: normal; text-align: center;"><b><span
-                                                    style="font-size: 10.0pt; font-family: 'Times New Roman','serif'; mso-fareast-font-family: 'Times New Roman';">Mobile:
-                                                    0869.355.921  (Thanh Trúc)</span></b></p>
-                                                     <p class="MsoNormal"
-                                                         style="line-height: normal; text-align: center;"><b><span
-                                                                 style="font-size: 10.0pt; font-family: 'Times New Roman','serif'; mso-fareast-font-family: 'Times New Roman';">Facebook:
-                                                                 <a
-                                                                     href="https://facebook.com/115766749967066">https://facebook.com/115766749967066</a></span></b>
-                                                                 </p>
-                                    
+                                <div class="banner-main">
+
+                                    <div id="meteor-slideshow" class="meteor-slides  navprevnext">
+
+
+
+                                        <ul class="meteor-nav">
+
+                                            <li id="meteor-prev" class="prev"><a href="#prev">Previous</a></li>
+
+                                            <li id="meteor-next" class="next"><a href="#next">Next</a></li>
+
+                                        </ul><!-- .meteor-nav -->
+
+
+
+                                        <div class="meteor-clip">
+
+
+                                            <img style="visibility: hidden;" class="meteor-shim"
+                                                src="./../images/anh2.jpg" alt="">
+                                            <div class="mslide mslide-2">
+
+
+                                                <img width="auto" height="auto" src="./../images/anh2.jpg"
+                                                    class="attachment-featured-slide size-featured-slide wp-post-image jetpack-lazy-image"
+                                                    alt="" loading="lazy" title="slider 1" data-attachment-id="24"
+                                                    data-permalink="./../images/anh2.jpg/"
+                                                    data-orig-file="./../images/anh2.jpg" data-orig-size="1024,314"
+                                                    data-comments-opened="1"
+                                                    data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}"
+                                                    data-image-title="banner-main" data-image-description=""
+                                                    data-image-caption="" data-medium-file="./../images/anh2.jpg"
+                                                    data-large-file="./../images/anh2.jpg"
+                                                    data-lazy-srcset="./../images/anh2.jpg"
+                                                    data-lazy-sizes="(max-width: 1024px) 100vw, 1024px"
+                                                    data-lazy-src="./../images/anh2.jpg" srcset="./../images/anh2.jpg">
+
+                                            </div><!-- .mslide -->
+                                            <div class="mslide mslide-1">
+
+
+                                                <img width="auto" height="auto" src="./../images/anh1.jpg"
+                                                    class="attachment-featured-slide size-featured-slide wp-post-image jetpack-lazy-image"
+                                                    alt="" loading="lazy" title="slider 1" data-attachment-id="24"
+                                                    data-permalink="./../images/anh1.jpg/"
+                                                    data-orig-file="./../images/anh1.jpg" data-orig-size="1024,314"
+                                                    data-comments-opened="1"
+                                                    data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}"
+                                                    data-image-title="banner-main" data-image-description=""
+                                                    data-image-caption="" data-medium-file="./../images/anh1.jpg"
+                                                    data-large-file="./../images/anh1.jpg"
+                                                    data-lazy-srcset="./../images/anh1.jpg"
+                                                    data-lazy-sizes="(max-width: 1024px) 100vw, 1024px"
+                                                    data-lazy-src="./../images/anh1.jpg" srcset="./../images/anh1.jpg">
+
+                                            </div><!-- .mslide -->
+
+
+
+
+
+                                            <div class="mslide mslide-1">
+
+
+                                                <img width="auto" height="auto" src="./../images/anh4.jpg"
+                                                    class="attachment-featured-slide size-featured-slide wp-post-image jetpack-lazy-image"
+                                                    alt="" loading="lazy" title="slider 1" data-attachment-id="24"
+                                                    data-permalink="./../images/anh4.jpg/"
+                                                    data-orig-file="./../images/anh4.jpg" data-orig-size="1024,314"
+                                                    data-comments-opened="1"
+                                                    data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}"
+                                                    data-image-title="banner-main" data-image-description=""
+                                                    data-image-caption="" data-medium-file="./../images/anh4.jpg"
+                                                    data-large-file="./../images/anh4.jpg"
+                                                    data-lazy-srcset="./../images/anh4.jpg"
+                                                    data-lazy-sizes="(max-width: 1024px) 100vw, 1024px"
+                                                    data-lazy-src="./../images/anh4.jpg" srcset="./../images/anh4.jpg">
+
+                                            </div><!-- .mslide -->
+                                            <div class="mslide mslide-1">
+
+
+                                                <img width="auto" height="auto" src="./../images/anh6.jpg"
+                                                    class="attachment-featured-slide size-featured-slide wp-post-image jetpack-lazy-image"
+                                                    alt="" loading="lazy" title="slider 1" data-attachment-id="24"
+                                                    data-permalink="./../images/anh6.jpg/"
+                                                    data-orig-file="./../images/anh6.jpg" data-orig-size="1024,314"
+                                                    data-comments-opened="1"
+                                                    data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}"
+                                                    data-image-title="banner-main" data-image-description=""
+                                                    data-image-caption="" data-medium-file="./../images/anh6.jpg"
+                                                    data-large-file="./../images/anh6.jpg"
+                                                    data-lazy-srcset="./../images/anh6.jpg"
+                                                    data-lazy-sizes="(max-width: 1024px) 100vw, 1024px"
+                                                    data-lazy-src="./../images/anh6.jpg" srcset="./../images/anh6.jpg">
+
+                                            </div><!-- .mslide -->
+                                            <div class="mslide mslide-1">
+
+
+                                                <img width="auto" height="auto" src="./../images/anh7.jpg"
+                                                    class="attachment-featured-slide size-featured-slide wp-post-image jetpack-lazy-image"
+                                                    alt="" loading="lazy" title="slider 1" data-attachment-id="24"
+                                                    data-permalink="./../images/anh7.jpg/"
+                                                    data-orig-file="./../images/anh7.jpg" data-orig-size="1024,314"
+                                                    data-comments-opened="1"
+                                                    data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}"
+                                                    data-image-title="banner-main" data-image-description=""
+                                                    data-image-caption="" data-medium-file="./../images/anh7.jpg"
+                                                    data-large-file="./../images/anh7.jpg"
+                                                    data-lazy-srcset="./../images/anh7.jpg"
+                                                    data-lazy-sizes="(max-width: 1024px) 100vw, 1024px"
+                                                    data-lazy-src="./../images/anh7.jpg" srcset="./../images/anh7.jpg">
+
+                                            </div><!-- .mslide -->
+
+
+
+                                        </div><!-- .meteor-clip -->
+
+
+                                    </div><!-- .meteor-slides -->
+
                                 </div>
+                                <div class="banner-main1">
+
+                                    <div id="meteor-slideshow" class="meteor-slides  navprevnext">
+                                        <div class="meteor-clip">
+
+                                            <img class="meteor-shim"
+                                                src="./../images/anh3.jpg" alt="">
+                                            <div class="mslide ">
+
+                                        </div><!-- .meteor-clip -->
+
+
+                                    </div><!-- .meteor-slides -->
+
+                                </div>
+                                 <div class="banner-main2">
+
+                                     <div id="meteor-slideshow" class="meteor-slides  navprevnext">
+                                         <div class="meteor-clip">
+
+                                             <img  class="meteor-shim"
+                                                 src="./../images/anh5.jpg" alt="">
+                                             <div class="mslide ">
+
+                                             </div><!-- .meteor-clip -->
+
+
+                                         </div><!-- .meteor-slides -->
+
+                                     </div>
                             </div>
                         </div><!-- .entry-content -->
 
@@ -824,7 +960,8 @@
                                 Việt Thái tham gia hội chợ nông nghiệp quốc tế đồng bằng bắc bộ năm 2016</a>
                         </li>
                         <li>
-                            <a href="../tra-viet-thai-che-thai-nguyen-hao-hang/index.html">Trà Việt Thái &#8211; Chè Thái
+                            <a href="../tra-viet-thai-che-thai-nguyen-hao-hang/index.html">Trà Việt Thái &#8211; Chè
+                                Thái
                                 Nguyên hảo hạng</a>
                         </li>
                         <li>
@@ -858,9 +995,9 @@
                     <li id="menu-item-144"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-144"><a
                             href="./../lienhe/index.html">LIÊN HỆ</a></li>
-                                        <li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21
+                    <li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21
                                     current-menu-item page_item page-item-8 current_page_item"><a
-                                                href="./../hinhanh/index.html">Hình ảnh</a></li>
+                            href="./../hinhanh/index.html">Hình ảnh</a></li>
                 </ul>
                 <div class="clearboth"></div>
             </div>
@@ -888,7 +1025,7 @@
                                 Phân Phối Chính Thức Tại Hà Nội</span></b></p>
                     <p class="MsoNormal" style="line-height: normal; text-align: center;"><b><span
                                 style="font-size: 10.0pt; font-family: 'Times New Roman','serif'; mso-fareast-font-family: 'Times New Roman';">Mobile:
-                                0869.355.921  (Thanh Trúc)</span></b></p>
+                                0869.355.921 (Thanh Trúc)</span></b></p>
                 </div>
                 <div class="hotline-footer">
                     <img src="../wp-content/uploads/2016/08/hotline_chethainguyen-3.png" alt="Chè Thái Nguyên">
