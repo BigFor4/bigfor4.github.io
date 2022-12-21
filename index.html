@@ -41,10 +41,8 @@
                 const yellowLine = viewer.entities.add({
                     polyline: {
                         positions: listLine[i],
-                        width: 3,
-                        material: new Cesium.PolylineDashMaterialProperty({
-                            color: Cesium.Color.fromRandom().withAlpha(1),
-                        }),
+                        width: 5,
+                        material: Cesium.Color.fromRandom().withAlpha(1),
                     },
                 });
             }
