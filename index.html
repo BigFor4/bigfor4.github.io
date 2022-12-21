@@ -35,13 +35,13 @@
         Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3Yjg0MDg0Ny03ZjhhLTRjYTYtYTZkYy0wN2I2NmQxMDI5MzEiLCJpZCI6NzU0ODgsImlhdCI6MTYzODY3NDIzMX0.YgUxCvWMj0vQRZVspSIzkDAbfwziosVYq9gLWDaRjAI';
         var viewer = new Cesium.Viewer("cesiumContainer");
         async function hahaha() {
-            let res = await axios.get(`https://superstorm-vda-app-consulting-dev.s3.us-east-1.amazonaws.com/BHTestt/dangnh_test_file.json?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEE8aDmFwLXNvdXRoZWFzdC0xIkgwRgIhAPo9xbTuJjft8c4%2BhpDg%2Bhnu1%2BplottYVqZTNj%2Ba9GC0AiEA%2Be1xsSRZuEDgXKEwiAUY2aJkMK9M4keJm%2B7rFUC85YAqjgMIiP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgwxNjIyODIzMjczNTciDGB0UxsYMYEZt6UbZyriAmYOIbB0YU9A0yd0zubw9Z486Xpq%2F8Hx5eHV72RXAzhBMcs7HWom3NRlxFuKNv4jIMZAOk6DryJr5ZR4Hi1qVNAg8pSpoo8ts3TNg5M1UEwyEAnUwmZbqkR6UVn6eMmScRmZ1IhyO%2BNh5ljKItWfEuNTIjXJkl9Hp87uzGv4FJbtdYdMkALMKi6vpPct1YpvfdranYfe1vX8Spx9u5wcn9IejxZu5iiQlqNp3oR54kHU7IK8rcY30GfqTBxQvZzy2I6ESnp%2F%2FgYlYDxMcFSKAmnwpTgcGDxAvPNlMxn0B8ZgEViWKnCpNX0uIIty%2F2jav5SCAf5pyvZ8BOghR%2FWgWXNulI0X9bX4%2FYR6ZrU3AHQvsdZHK5VDL3yxHYjHCO1sDR8FuBPJMNKbFkXa7t%2FJY1EOpMkypwK5pvLzAyv6S7gOGjTlMdFB9kwU7doh59CydVBBzqG4pfne23mwJ0OWgrWmHDCV1YqdBjqyAtkct%2FhD9sC11LAFc1c9S%2FXkQ9vI3dxpYdBo6M2IygfrpoXAtmOVvA%2F9shkhpQfaPbS1z8wIrzvbvf94PaJb0NVVD6JXRkocMfpogUy38DF2j8VaplPI65MbUpFlTUX0OmJA%2FmwMGi%2BOZpaTYbdjG0BoNfVf1j1xu5vyZ0xGqd2jsaD7RXue1xOTOmSMNMY8X6eEJzcHVTj59h1IvGmtjeI0L6vSOZWGOXIDwPBdvSBMiUXbS4wEaaQzGo18URP%2BtcRPdneoaPUzASF5usGK7DC%2F%2FrfUa51NTb8cv0QWQkFeZvS01EtaI61ZPwn6R4pfdFGwRtCiuhN3eL7hzjJjV%2FbfdyC7nGS6LNrld57W3anaALUWtdRhDRq5OhMCi3XLUyQIe%2BNqUeyx5ATbdlWYZgPEFA%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221221T073020Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASLSGHZU6UYQYYGMV%2F20221221%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=32ff8fcc19004fa3f4b3ed55131a7675995673598c460e255d4299d9b123c404`);
+            let res = await axios.get(`https://obt-test-eu.s3.eu-west-1.amazonaws.com/dangnh1_cbd6dce26c.json`);
             let listLine = res.data;
             for (var i = 0; i < listLine.length; i++) {
                 const yellowLine = viewer.entities.add({
                     polyline: {
                         positions: listLine[i],
-                        width: 3,
+                        width: 5,
                         material: Cesium.Color.fromRandom().withAlpha(1),
                     },
                 });
