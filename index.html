@@ -18,6 +18,7 @@
 
     #cesiumContainer {
         z-index: -1;
+        height: 100%;
     }
 
     #selectDataTable {
@@ -41,7 +42,7 @@
                         positions: listLine[i],
                         width: 3,
                         material: new Cesium.PolylineDashMaterialProperty({
-                            color: Cesium.Color.fromRandom(),
+                            color: Cesium.Color.fromRandom().withAlpha(1),
                         }),
                     },
                 });
