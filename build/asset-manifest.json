@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/botrua/static/css/main.f6f16d51.css",
+    "main.js": "/botrua/static/js/main.fe7fae31.js",
+    "static/js/787.0c3f432a.chunk.js": "/botrua/static/js/787.0c3f432a.chunk.js",
+    "index.html": "/botrua/index.html",
+    "main.f6f16d51.css.map": "/botrua/static/css/main.f6f16d51.css.map",
+    "main.fe7fae31.js.map": "/botrua/static/js/main.fe7fae31.js.map",
+    "787.0c3f432a.chunk.js.map": "/botrua/static/js/787.0c3f432a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f6f16d51.css",
+    "static/js/main.fe7fae31.js"
+  ]
+}
