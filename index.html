@@ -1,36 +1,261 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Phan Thanh Trúc</title>
-    <meta
-      name="keywords"
-      content="chiecbatluavavaycongchua,lytuan,chuvan,tranphivu,truongtinhnghi,thapsanganhsuoiamem,phimtrungquoc,xuhuong,trending,tiktok"
-    />
-    <meta name="description" content="Phan Thanh Trúc" />
-    <link
-      rel="shortcut icon"
-      href="https://www.xfabe.com/favicon.ico"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
+<html lang="en">
 
-  <body>
-    <a
-      style="text-decoration: none"
-      class="love_you"
-      href="https://www.facebook.com/profile.php?id=100015588608133"
-      >Phan Thanh Trúc</a
-    >
-    <audio id="myAudio" controls autoplay>
-      <source src="./lovexf.ogg" type="audio/ogg" />
-      <source src="./lovexf.mp3" type="audio/mpeg" />
-    </audio>
-    <canvas id="lovexf"></canvas>
-    <script src="script.js"></script>
-    <script></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet Group Select</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+        #map {
+            height: 100vh;
+        }
+
+        .buttons {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="buttons">
+        <button id="drawRectangle">Draw Selection</button>
+        <button id="clearSelection" style="display: none;">Clear Selection</button>
+    </div>
+    <div id="map"></div>
+    <script>
+        let map = L.map('map', {
+            dragging: true
+        }).setView([51.505, -0.09], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        let groupLayers = new L.FeatureGroup().addTo(map);
+        let allLayers = new L.FeatureGroup().addTo(map);
+        let selectionBox;
+        let copiedLayers = [];
+        let isDragging = false;
+        let dragStart;
+        let rectangleStart = null;
+        let drawingRectangle = false;
+
+        document.getElementById('drawRectangle').addEventListener('click', () => {
+            drawingRectangle = true;
+        });
+        const getCurrrentPositionLayerGroup = (group) => {
+            let oldGroupLayers = []
+            group.eachLayer(layer => {
+                const typeDraw = layer.typeDraw
+                if (typeDraw === 'count' || typeDraw === 'design') {
+                    let newPos = layer.getLatLng();
+                    const dataCopy = {
+                        id: layer._id,
+                        position: newPos,
+                        typeDraw
+                    }
+                    oldGroupLayers.push(dataCopy);
+                } else if (typeDraw === 'area' || typeDraw === 'length' || typeDraw === 'highlight') {
+                    let newLatLngs = layer.getLatLngs()
+                    const dataCopy = {
+                        id: layer._id,
+                        position: newLatLngs,
+                        typeDraw
+                    }
+                    oldGroupLayers.push(dataCopy);
+                }
+            });
+            return oldGroupLayers;
+        }
+        const drawNewLayer = (arraylayer, offset) => {
+            let arrayNewLayer = [];
+            arraylayer.forEach(layerData => {
+                let newLayer;
+                let newPos;
+                const typeDraw = layerData.typeDraw
+                if (typeDraw === 'count' || typeDraw === 'design') {
+                    newPos = L.latLng(layerData.position.lat + (offset ? offset[0] : 0), layerData.position.lng + (offset ? offset[1] : 0));
+                    newLayer = L.marker(newPos).addTo(allLayers);
+                } else if (typeDraw === 'area' || typeDraw === 'length' || typeDraw === 'highlight') {
+                    newPos = layerData.position.map(latlngGroup => {
+                        if (Array.isArray(latlngGroup)) {
+                            return latlngGroup.map(latlng => L.latLng(latlng.lat + (offset ? offset[0] : 0), latlng.lng + (offset ? offset[1] : 0)));
+                        }
+                        return L.latLng(latlngGroup.lat + (offset ? offset[0] : 0), latlngGroup.lng + (offset ? offset[1] : 0));
+                    });
+                    if (typeDraw === 'area') {
+                        newLayer = L.polygon(newPos).addTo(allLayers)
+                    } else if (typeDraw === 'length') {
+                        newLayer = L.polyline(newPos).addTo(allLayers)
+                    } else if (typeDraw === 'highlight') {
+                        newLayer = L.polygon(newPos).addTo(allLayers)
+                    }
+                }
+                if (newLayer) {
+                    newLayer.typeDraw = typeDraw;
+                    arrayNewLayer.push(newLayer);
+                }
+            });
+            return arrayNewLayer;
+        }
+        document.getElementById('clearSelection').addEventListener('click', () => {
+            if (selectionBox) {
+                map.removeLayer(selectionBox);
+                selectionBox = null;
+            }
+            let oldGroupLayers = getCurrrentPositionLayerGroup(groupLayers);
+            groupLayers.clearLayers();
+            const newArrayOldGroupLayer = drawNewLayer(oldGroupLayers, false);
+            copiedLayers = [];
+            drawingRectangle = false;
+            document.getElementById('clearSelection').style.display = 'none';
+        });
+
+        map.on('click', function (e) {
+            if (drawingRectangle) {
+                if (!rectangleStart) {
+                    rectangleStart = e.latlng;
+                } else {
+                    let bounds = L.latLngBounds(rectangleStart, e.latlng);
+                    selectionBox = L.rectangle(bounds, { color: 'blue', weight: 1 }).addTo(map);
+                    rectangleStart = null;
+                    groupLayers.clearLayers();
+                    allLayers.eachLayer(layer => {
+                        const typeDraw = layer.typeDraw;
+                        if (typeDraw === 'count' || typeDraw === 'design') {
+                            if (bounds.contains(layer.getLatLng())) {
+                                groupLayers.addLayer(layer);
+                            }
+                        } else if (typeDraw === 'area' || typeDraw === 'length' || typeDraw === 'highlight') {
+                            if (bounds.intersects(layer.getBounds())) {
+                                groupLayers.addLayer(layer);
+                            }
+                        }
+                    });
+                    setTimeout(() => {
+                        map.removeLayer(selectionBox);
+                        selectionBox = null;
+                    }, 1000);
+                    document.getElementById('clearSelection').style.display = 'block';
+                    drawingRectangle = false;
+                }
+            }
+        });
+
+        groupLayers.on('mousedown', function (e) {
+            isDragging = true;
+            dragStart = e.latlng;
+            map.dragging.disable();
+        });
+
+        map.on('mousemove', function (e) {
+            if (isDragging) {
+                let offset = [e.latlng.lat - dragStart.lat, e.latlng.lng - dragStart.lng];
+                groupLayers.eachLayer(layer => {
+                    if (layer.typeDraw === 'count' || layer.typeDraw === 'design') {
+                        let newPos = L.latLng(layer.getLatLng().lat + offset[0], layer.getLatLng().lng + offset[1]);
+                        layer.setLatLng(newPos);
+                    } else if (layer.typeDraw === 'area' || layer.typeDraw === 'length' || layer.typeDraw === 'highlight') {
+                        let newLatLngs = layer.getLatLngs().map(latlngGroup => {
+                            if (Array.isArray(latlngGroup)) {
+                                return latlngGroup.map(latlng => L.latLng(latlng.lat + offset[0], latlng.lng + offset[1]));
+                            } else {
+                                return L.latLng(latlngGroup.lat + offset[0], latlngGroup.lng + offset[1]);
+                            }
+                        });
+                        layer.setLatLngs(newLatLngs);
+                    }
+                });
+
+                dragStart = e.latlng;
+            }
+        });
+
+        map.on('mouseup', function () {
+            isDragging = false;
+            map.dragging.enable();
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.key === 'c') {
+                copiedLayers = getCurrrentPositionLayerGroup(groupLayers);
+            }
+        });
+
+        map.on('mousemove', function (e) {
+            if (copiedLayers.length > 0) {
+                window.pastePosition = e.latlng;
+            }
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.key === 'v' && copiedLayers.length > 0) {
+                if (!window.pastePosition) return;
+                let firstLayer = copiedLayers[0];
+                let firstPos = Array.isArray(firstLayer.position) ? firstLayer.position[0] : firstLayer.position;
+                let offset = [
+                    window.pastePosition.lat - firstPos.lat,
+                    window.pastePosition.lng - firstPos.lng
+                ];
+                let oldGroupLayers = getCurrrentPositionLayerGroup(groupLayers);
+                groupLayers.clearLayers();
+                const newArrayOldGroupLayer = drawNewLayer(oldGroupLayers);
+                const newArrayGroupLayer = drawNewLayer(copiedLayers, offset);
+                newArrayGroupLayer.map(x => {
+                    groupLayers.addLayer(x);
+                })
+            }
+        });
+
+
+        let layer1 = L.marker([51.505, -0.09]).addTo(allLayers);
+        layer1.typeDraw = 'count';
+        let layer2 = L.marker([51.51, -0.1]).addTo(allLayers);
+        layer2.typeDraw = 'count';
+        let layer3 = L.marker([51.515, -0.095]).addTo(allLayers);
+        layer3.typeDraw = 'count';
+
+        let polygon1 = L.polygon([
+            [51.509, -0.08],
+            [51.503, -0.06],
+            [51.51, -0.047]
+        ]).addTo(allLayers);
+        polygon1.typeDraw = 'area';
+        let polyline1 = L.polyline([
+            [51.505, -0.09],
+            [51.51, -0.1],
+            [51.51, -0.12]
+        ]).addTo(allLayers);
+        polyline1.typeDraw = 'length';
+        let polygon2 = L.polygon([
+            [51.52, -0.1],
+            [51.525, -0.12],
+            [51.53, -0.1]
+        ]).addTo(allLayers);
+        polygon2.typeDraw = 'area';
+        let polygon3 = L.polygon([
+            [51.515, -0.13],
+            [51.52, -0.15],
+            [51.525, -0.13]
+        ]).addTo(allLayers);
+        polygon3.typeDraw = 'area';
+        let polyline2 = L.polyline([
+            [51.52, -0.09],
+            [51.525, -0.1],
+            [51.53, -0.12]
+        ]).addTo(allLayers);
+        polyline2.typeDraw = 'length';
+        let polyline3 = L.polyline([
+            [51.515, -0.11],
+            [51.52, -0.13],
+            [51.525, -0.15]
+        ]).addTo(allLayers);
+        polyline3.typeDraw = 'length';
+    </script>
+</body>
+
 </html>
